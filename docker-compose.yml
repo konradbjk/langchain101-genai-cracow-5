@@ -1,0 +1,17 @@
+services:
+ qdrant:
+    image: qdrant/qdrant:v1.10.1
+    volumes:
+      - qdrantdata:/qdrant/storage
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    networks:
+      - node-network
+
+volumes:
+  qdrantdata:
+
+networks:
+  node-network:
+    driver: bridge
